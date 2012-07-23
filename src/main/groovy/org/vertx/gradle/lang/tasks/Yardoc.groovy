@@ -80,7 +80,7 @@ class Yardoc extends DefaultTask {
 
 	@InputFiles
     public List<String> getSources() {
-        return sources
+        return ['src/main/ruby', 'src/main/ruby_scripts']
     }
 
 	public Yardoc setSources(List<String> sources) {
