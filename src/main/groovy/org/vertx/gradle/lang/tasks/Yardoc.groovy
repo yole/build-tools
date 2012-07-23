@@ -66,6 +66,11 @@ class Yardoc extends DefaultTask {
 			'--no-private',
 			'--output-dir', destinationDir.path
 		]
+
+		// yardoc is installed as a batch file on Windows and must be run via 'cmd /c'
+		if (System.getProperty("os.name").startsWith("Windows")) {
+			args = ['cmd', '/c'] + args
+		}
 		
 		sources.each { source->
 			args << source
