@@ -121,6 +121,11 @@ class Pydoc extends DefaultTask {
 			"build/tmp/tools/pydocx.py"
 		]
 
+		// jython is installed as a batch file on Windows and must be run via 'cmd /c'
+		if (System.getProperty("os.name").startsWith("Windows")) {
+			args = ['cmd', '/c'] + args
+		}
+
 		exec.commandLine = args
 
 		exec.execute()		
